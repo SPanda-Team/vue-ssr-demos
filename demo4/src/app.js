@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './app.vue'
+import './assets/common.css';
+import animated from 'animate.css';
 
 // 导出一个工厂函数，用于创建新的应用程序
 export function createApp () {

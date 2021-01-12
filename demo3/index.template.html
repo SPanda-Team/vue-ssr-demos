@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ title }}</title>
-  <!-- 使用三花括号(triple-mustache)进行 HTML 不转义插值(non-HTML-escaped interpolation) -->
-  {{{ meta }}}
 </head>
 <body>
   <!--vue-ssr-outlet-->
@@ -13,7 +10,5 @@
   <script>
     document.getElementById('date').innerText = new Date()
   </script>
-
-  {{ footer }}
 </body>
 </html>

@@ -80,7 +80,7 @@ function render(req, res) {
   const context = {
     title: 'My Vue SSR Title',  // default title
     meta: `
-      <meta name="theme-color" content="#4285f4">
+      <meta name="author" content="Sol">
     `,
     url: req.url
   }
@@ -99,13 +99,7 @@ app.get('*', isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res))
 })
 
-// const port = process.env.PORT || 8888
-// app.listen(port, () => {
-//   console.log(`server started at localhost:${port}`)
-// })
-
-app.set('port', process.env.PORT || 8888)
-let hostname = '0.0.0.0'
-app.listen(app.get('port'), hostname, () => {
-  console.log(`Server running at http://${hostname}:${app.get('port')}`)
+const port = process.env.PORT || 8888
+app.listen(port, () => {
+  console.log(`server started at localhost:${port}`)
 })

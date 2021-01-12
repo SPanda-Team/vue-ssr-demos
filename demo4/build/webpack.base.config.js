@@ -44,6 +44,32 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        use: isProd
+          ? ExtractTextPlugin.extract({
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: { minimize: true }
+                },
+                'stylus-loader'
+              ],
+              fallback: 'vue-style-loader'
+            })
+          : ['vue-style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        // 命中字体包
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        // 排除 node_modules 目录下的文件
+        exclude: /node_modules/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
         test: /\.styl(us)?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
