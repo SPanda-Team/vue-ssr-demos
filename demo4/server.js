@@ -78,7 +78,7 @@ function render(req, res) {
   }
 
   const context = {
-    title: 'My Vue SSR Title',  // default title
+    title: '服务端渲染的栗子',
     meta: `
       <meta name="author" content="Sol">
     `,
@@ -89,9 +89,7 @@ function render(req, res) {
       return handleError(err)
     }
     res.send(html)
-    if(!isProd) {
-      console.log(`whole request: ${Date.now() - s} ms`)
-    }
+    console.log(`whole request: ${Date.now() - s} ms`)
   })
 }
 

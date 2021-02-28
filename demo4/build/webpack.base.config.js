@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const { resolve } = require('path')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -33,7 +34,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        include:[
+          resolve('src')  
+        ]
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -43,6 +47,14 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'vue-loader',
+      //   options: {
+      //     // enable CSS extraction
+      //     extractCSS: isProd
+      //   }
+      // },
       {
         test: /\.css$/,
         use: isProd

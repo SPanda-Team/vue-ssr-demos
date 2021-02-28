@@ -106,8 +106,7 @@ export default {
     };
   },
   created() {
-    // ReferenceError: window is not defined 这里在created生命周期取window对象会报错，因为ssr的时候并没有这个对象，需要放到mounted里面
-    // this.height = 'min-height: ' + window.innerHeight + 'px';
+    
   },
   mounted() {
     this.height = 'min-height: ' + window.innerHeight + 'px';
